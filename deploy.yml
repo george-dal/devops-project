@@ -1,0 +1,28 @@
+---
+- name: Deploy Military Service Application using Docker Compose
+  hosts: webservers
+  become: false
+
+  tasks:
+    - name: Verify Docker installation
+      command: docker --version
+      register: docker_check
+      changed_when: false
+
+    - name: Print Docker version
+      debug:
+        msg: "{{ docker_check.stdout }}"
+
+    - name: Verify Docker Compose installation
+      command: docker compose version
+      register: docker_compose_check
+      changed_when: false
+
+    - name: Print Docker Compose version
+      debug:
+        msg: "{{ docker_compose_check.stdout }}"
+
+    - name: Deploy services via Docker Compose
+      command: docker compose up -d --build
+      args:
+        chdir: "{{ playbook_dir }}"
