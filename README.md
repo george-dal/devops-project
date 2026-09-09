@@ -18,3 +18,20 @@
 ### 1. Εκκίνηση Υπηρεσιών
 ```bash
 docker compose up -d --build
+ ```
+
+### 2. Έλεγχος Κατάστασης (Health Status)
+```bash
+docker compose ps
+ ```
+
+## Εκτέλεση Automated Tests (Pytest)
+```bash
+cd app
+pytest
+ ```
+
+## Deployment μέσω Ansible
+```bash
+ansible-playbook -i inventory.ini deploy.yml
+ ```
