@@ -32,6 +32,10 @@ jobs:
         run: |
           docker compose up -d --build
 
+      - name: Run Ansible Deployment Playbook
+        run: |
+          ansible-playbook -i inventory.ini deploy.yml
+
       - name: Check Container Status
         run: |
           docker compose ps
