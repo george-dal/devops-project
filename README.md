@@ -1,19 +1,36 @@
-# devops-project
+#  Military Service Application - DevOps Project
 
-<Steps>
-  <Step subtitle="VS Code" title="1. Αντικαταστήστε το περιεχόμενο">
-    Επικολλήστε το παραπάνω διορθωμένο κείμενο στο `README.md` και πατήστε **`Ctrl + S`**. Θα δείτε αμέσως τα γράμματα να επανέρχονται στο κανονικό τους χρώμα!
-  </Step>
+Αυτή η εφαρμογή αποτελεί ένα ολοκληρωμένο έργο DevOps για την αυτοματοποιημένη ανάπτυξη (deployment) και δοκιμή (testing) της εφαρμογής "Military Service".
 
-  <Step subtitle="PowerShell" title="2. Κάντε το τελικό Push στο GitHub">
-    Εκτελέστε στο PowerShell τις παρακάτω εντολές:
+##  Αρχιτεκτονική & Τεχνολογίες
+- **Backend Framework:** Python FastAPI
+- **Database:** PostgreSQL 15
+- **Authentication:** Keycloak 24
+- **Email Service:** MailHog
+- **Containerization:** Docker & Docker Compose (με Healthchecks)
+- **CI/CD Pipeline:** GitHub Actions & Pytest
+- **Configuration Management / Deployment:** Ansible
 
-    ```powershell
-    git add README.md
-    git commit -m "Fix README markdown formatting and code block closures"
-    git push origin main
-    ```
-  </Step>
-</Steps>
+---
 
-<FollowUp label="Θέλετε να κάνουμε μια τελική σύνοψη όλων όσων υλοποιήσαμε;" query="Ας κάνουμε μια τελική σύνοψη όλων όσων υλοποιήσαμε για να βεβαιωθούμε ότι είμαστε έτοιμοι για την παράδοση της εργασίας."/>
+##  Οδηγίες Τοπικής Εκτέλεσης (Docker)
+
+### 1. Εκκίνηση Υπηρεσιών
+```bash
+docker compose up -d --build
+```
+
+### 2. Έλεγχος Κατάστασης (Health Status)
+```bash
+docker compose ps
+```
+
+##  Εκτέλεση Automated Tests (Pytest)
+```bash
+cd app
+pytest
+```
+##  Deployment μέσω Ansible
+```bash
+ansible-playbook -i inventory.ini deploy.yml
+```
