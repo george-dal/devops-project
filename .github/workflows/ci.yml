@@ -23,6 +23,11 @@ jobs:
           python -m pip install --upgrade pip
           if [ -f app/requirements.txt ]; then pip install -r app/requirements.txt; fi
 
+      - name: Run Pytest Tests
+        run: |
+          cd app
+          pytest
+          
       - name: Build Docker Services with Healthchecks
         run: |
           docker compose up -d --build
