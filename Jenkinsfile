@@ -1,5 +1,5 @@
 pipeline {
-    agent any
+    agent { label 'wsl' }
 
     stages {
         stage('Checkout') {
@@ -8,6 +8,12 @@ pipeline {
             }
         }
 
+        stage('Test') {
+            steps {
+                sh 'python3 -m pytest'
+            }
+        }
+        
         stage('Run Unit Tests') {
             steps {
                 sh 'cd app && python3 -m pytest'
