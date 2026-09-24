@@ -8,8 +8,10 @@
 - **Authentication:** Keycloak 24
 - **Email Service:** MailHog
 - **Containerization:** Docker & Docker Compose (με Healthchecks)
-- **CI/CD Pipeline:** GitHub Actions & Pytest
+- **CI/CD Pipeline:** GitHub Actions & Jenkins
+- **Automated Testing:** Pytest
 - **Configuration Management / Deployment:** Ansible
+- **Kubernetes Support:** Manifests για MicroK8s
 
 ---
 
@@ -28,7 +30,7 @@ docker compose ps
 ##  Εκτέλεση Automated Tests (Pytest)
 ```bash
 cd app
-pytest
+python -m pytest
 ```
 ##  Deployment μέσω Ansible
 ```bash
